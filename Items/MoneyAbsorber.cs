@@ -9,7 +9,7 @@ namespace extraUtility.Items
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("MoneyAbsorber"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("Effects of Greedy Ring /nAlso puts all money dropped into your inventory. Instantly");
+			Tooltip.SetDefault("Effects of Greedy Ring \nAlso puts all money dropped into your inventory. Instantly");
 		}
 
 		public override void SetDefaults() 
@@ -64,16 +64,7 @@ namespace extraUtility.Items
 			player.coins = true;
 			player.discount = true;
 		}
-		public static void AddRecipeGroups()
-        {
-			RecipeGroup group = new RecipeGroup(() => "Any Evil Crafting Material", new int[] { ItemID.Ichor, ItemID.CursedFlame });
-			RecipeGroup.RegisterGroup("ExUtil:EvilMaterial", group);
-
-			group = new RecipeGroup(() => "Any living fire", new int[] { ItemID.LivingFireBlock, ItemID.LivingCursedFireBlock, 
-																		 ItemID.LivingDemonFireBlock, ItemID.LivingFrostFireBlock,
-																		 ItemID.LivingIchorBlock, ItemID.LivingUltrabrightFireBlock });
-			RecipeGroup.RegisterGroup("ExUtil:AnyLivingFire", group);
-		}
+		
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
