@@ -11,7 +11,7 @@ namespace extraUtility
 			RecipeGroup group = new RecipeGroup(() => "Any Evil Crafting Material", new int[] { ItemID.Ichor, ItemID.CursedFlame });
 			RecipeGroup.RegisterGroup("ExUtil:EvilMaterial", group);
 
-			group = new RecipeGroup(() => "Any living fire", new int[] { ItemID.LivingFireBlock, ItemID.LivingCursedFireBlock,
+			group = new RecipeGroup(() => "Any Living Fire", new int[] { ItemID.LivingFireBlock, ItemID.LivingCursedFireBlock,
 																		 ItemID.LivingDemonFireBlock, ItemID.LivingFrostFireBlock,
 																		 ItemID.LivingIchorBlock, ItemID.LivingUltrabrightFireBlock });
 			RecipeGroup.RegisterGroup("ExUtil:AnyLivingFire", group);
@@ -25,8 +25,8 @@ namespace extraUtility
 				ItemID.Gravestone,
 				ItemID.Obelisk
 			};
-			group = new RecipeGroup(() => "Any gravestone", graves);
-			RecipeGroup.RegisterGroup("ExUtil:AnyTomb", group);
+			group = new RecipeGroup(() => "Any Non-Gilded Gravestone", graves);
+			RecipeGroup.RegisterGroup("ExUtil:AnyPoorTomb", group);
 
 			int[] richGraves = new int[]
 			{
@@ -36,8 +36,11 @@ namespace extraUtility
 				ItemID.RichGravestone4,
 				ItemID.RichGravestone5
 			};
-			group = new RecipeGroup(() => "Any gilded gravestone", richGraves);
+			group = new RecipeGroup(() => "Any Gilded Gravestone", richGraves);
 			RecipeGroup.RegisterGroup("ExUtil:AnyRichTomb", group);
+
+			group = new RecipeGroup(() => "Any Magic Mirror", new int[] { ItemID.MagicMirror, ItemID.IceMirror });
+			RecipeGroup.RegisterGroup("ExUtil:AnyMirror", group);
 		}
 	}
 }
