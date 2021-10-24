@@ -38,6 +38,7 @@ namespace extraUtility.Items
 
         public override bool UseItem(Player player)
         {
+            /**
             for (int index = 0; index < 70; ++index)
             {
                 int d = Dust.NewDust(player.position, player.width, player.height, DustID.AmethystBolt, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
@@ -67,7 +68,7 @@ namespace extraUtility.Items
                 Main.dust[d].velocity *= 4f;
                 Main.dust[d].noGravity = true;
             }
-
+            /**/
             return true;
         }
     }

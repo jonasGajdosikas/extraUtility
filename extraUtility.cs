@@ -42,5 +42,6 @@ namespace extraUtility
 			group = new RecipeGroup(() => "Any Magic Mirror", new int[] { ItemID.MagicMirror, ItemID.IceMirror });
 			RecipeGroup.RegisterGroup("ExUtil:AnyMirror", group);
 		}
+
 	}
 }
