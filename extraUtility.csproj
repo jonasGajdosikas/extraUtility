@@ -13,12 +13,4 @@
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Update="MonoMod.RuntimeDetour">
-      <HintPath>C:\Users\garfield\Documents\My Games\Terraria\ModLoader\references\MonoMod.RuntimeDetour.dll</HintPath>
-    </Reference>
-    <Reference Update="MonoMod.Utils">
-      <HintPath>C:\Users\garfield\Documents\My Games\Terraria\ModLoader\references\MonoMod.Utils.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>

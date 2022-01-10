@@ -8,13 +8,17 @@ namespace extraUtility
 {
     public class ExUtilPlayer : ModPlayer
     {
+        public bool HomingBullets;
+        public bool GrappleAcc;
+        public bool WithersPlants;
+        public float grappleRangeIncrease;
         public ExUtilPlayer()
         {
         }
         public override void PreUpdate()
         {
             base.PreUpdate();
-
+            #region [handle teleport to death point]
             Item item = player.inventory[player.selectedItem];
             if (item.type == ModContent.ItemType<DeathMirror>() && player.itemAnimation > 0)
             {
@@ -98,6 +102,36 @@ namespace extraUtility
                     }
                 }
             }
+            #endregion
+            if (this.WithersPlants)
+            {
+                Rectangle hitbox = this.player.Hitbox;
+                int x0 = (hitbox.X + hitbox.Width / 2) / 16;
+                int y0 = (hitbox.Y + hitbox.Height / 2) / 16;
+                for (int dx = -5; dx < 6; dx++)
+                {
+                    for (int dy = -5; dy < 6; dy++)
+                    {
+                        if (dx * dx + dy * dy < 36)
+                        {
+                            if (Main.tile[x0 + dx, y0 + dy] != null &&
+                                Main.tileCut[Main.tile[x0 + dx, y0 + dy].type] &&
+                                WorldGen.CanCutTile(x0 + dx, y0 + dy, Terraria.Enums.TileCuttingContext.AttackMelee))
+                            {
+                                WorldGen.KillTile(x0 + dx, y0 + dy);
+                                if (Main.netMode == NetmodeID.MultiplayerClient) NetMessage.SendData(MessageID.TileChange, -1, -1, null, 0, x0 + dx, y0 + dy);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public override void ResetEffects()
+        {
+            HomingBullets = false;
+            GrappleAcc = false;
+            WithersPlants = false;
+            grappleRangeIncrease = 0;
         }
     }
 }
